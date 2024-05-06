@@ -19,10 +19,13 @@ const bookSchema = new Schema({
     },
     pageCount: { 
         type: Number, 
-        required: true 
+        required: true,
+        default: 0, 
     },
     description: String,
     createdAt: { type: Date, default: Date.now }
+}, {
+    timestamp: true,
 });
 
 const Book = mongoose.model('Book', bookSchema);
