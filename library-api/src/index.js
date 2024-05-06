@@ -5,13 +5,6 @@ const app = express()
 app.use(express.json())
 const port = 3000
 
-// const Film = mongoose.model('Film', { 
-//     title: String,
-//     description: String,
-//     image_url: String,
-//     traler_url: String
-// });
-
 // app.get('/', async (req, res) => {
 //     const films = await Film.find()
 //     return res.send(films)
