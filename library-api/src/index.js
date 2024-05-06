@@ -5,10 +5,43 @@ const app = express()
 app.use(express.json())
 const port = 3000
 
-// app.get('/', async (req, res) => {
-//     const films = await Film.find()
-//     return res.send(films)
-// })
+const Book = mongoose.model('Book', { 
+    title: String,
+    author: String,
+    genre: String,
+    publishedYear: Number,
+    pageCount: Number,
+    description: String,
+    createAt: { type: Date, default: Date.now }
+});
+
+app.get('/', async (req, res) => {
+    try{
+        const books = await Book.find({})
+        res.status(200).json(books)
+    }catch(err){
+        res.status(500).json({message: err.message})
+    }
+})
+
+app.post('/book', async (req, res) => {
+    try{
+        const book = await Book.create({
+            title: req.body.title,
+            author: req.body.author,
+            genre: req.body.genre,
+            publishedYear: req.body.publishedYear,
+            pageCount: req.body.pageCount,
+            description: req.body.description,
+            createdAt: Date.now()
+        });
+        res.status(200).json(book)
+    }catch(err){
+        res.status(500).json({message: err.message})
+    }
+})
+
+
 
 // app.delete('/:id', async(req, res) => {
 //     const film = await Film.findOneAndDelete(req.params.id)
@@ -43,7 +76,7 @@ mongoose.connect('mongodb+srv://ketlywine:GwrXtzgN7qpq6yXk@cluster0.q4wkl4i.mong
 .then(() => {
     console.log('Connected to database')
     app.listen(port, () => {
-        console.log('Funcionando na porta ${port}')
+        console.log(`Funcionando na porta ${port}`)
     })
 }).catch(() => {
     console.log('Connection failed')

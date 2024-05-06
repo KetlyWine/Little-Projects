@@ -23,9 +23,11 @@ const bookSchema = new Schema({
         default: 0, 
     },
     description: String,
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { 
+        type: Date, 
+        default: Date.now }
 }, {
-    timestamp: true,
+    timestamps: true,
 });
 
 const Book = mongoose.model('Book', bookSchema);
