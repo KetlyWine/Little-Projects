@@ -91,7 +91,7 @@ app.delete('/book/:id', async(req, res) => {
     }
 })
 
-mongoose.connect('mongodb+srv://ketlywine:GwrXtzgN7qpq6yXk@cluster0.q4wkl4i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://ketlywine:GwrXtzgN7qpq6yXk@cluster0.h9ljeae.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 .then(() => {
     console.log('Connected to database')
     app.listen(port, () => {
