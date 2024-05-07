@@ -92,7 +92,7 @@ app.delete('/book/:id', async(req, res) => {
     }
 })
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
     console.log('Connected to database')
     app.listen(port, () => {
