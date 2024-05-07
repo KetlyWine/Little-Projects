@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const {Schema} = mongoose
 
 const bookSchema = new Schema({
     title: { 
@@ -25,7 +26,8 @@ const bookSchema = new Schema({
     description: String,
     createdAt: { 
         type: Date, 
-        default: Date.now }
+        default: Date.now 
+    }
 }, {
     timestamps: true,
 });
